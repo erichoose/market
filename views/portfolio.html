@@ -1,0 +1,22 @@
+<section ng-controller="PortfolioCtrl" class="widget">
+	<h4 class="widget__headerLeft">Current Portfolio</h4>
+	<h4 class="widget__headerRight">Cash: {{currentMoney | currency}}</h4>
+	<table class="table table-striped">
+		<thead>
+	        <tr>
+	            <th>Company</th>
+	            <th>Quantity</th>
+	            <th>Price Paid</th>
+	            <th></th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	    	<tr ng-repeat="stock in stocks">
+				<td ng-bind="stock.company"></td>
+				<td ng-bind="stock.quantity | number"></td>
+				<td ng-bind="stock.pricePaid | currency"></td>
+				<td><button type="submit" ng-click="loadStock(stock.symbol)" class="btn">View Stock</button></td>
+			</tr>
+	    </tbody>		
+	</table>
+</section>
